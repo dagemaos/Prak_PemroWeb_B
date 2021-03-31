@@ -1,37 +1,41 @@
-<?php
-    //$_POST['nama'] = Ivanri;
-    //if (isset($_POST['submit_btn'])) {
-    //    if (strlen($_POST['diameter']) > 0) {
-    //        echo "login !";
-    //    } else {
-    //       echo "Isi diameter terlebih dahulu";
-    //    }
-    //}
-    
-    $luas = 0;
-    $volume = 0;
+<?php 
+require 'Tabung.php';
+// echo $_GET;
+// $_POST['nama'] = "Ivanri"
+// var_dump($_GET);
 
-    //if (isset($_POST['button_submit'])) {
-    //    $diameter = $_POST['diameter'];
-    //    $tinggi = $_POST['tinggi'];
-    //   $r = $diameter/2;
+// if (isset($_POST['submit_btn'])) {
+//     if (strlen($_POST['diameter']) > 0) {
+//         echo "login !";
+//     } else {
+//         echo "Isi diameter terlebih dahulu";
+//     }
+// }
+// $luas = 0;
+// $volume = 0;
 
-    //    $luas = 3.14 * $diameter * $tinggi;
-    //    $volume = 3.14 * $r * $r * $tinggi;
+$tabung = new Tabung;
+if (isset($_POST['button_sbm'])) {
+//    $diameter = $_POST['diameter']; 
+//    $tinggi = $_POST['tinggi']; 
+//    $r = $diameter / 2;
 
-    //    echo "Diameter $diameter <br/>";
-    //    echo "Tinggi $tinggi <br/>";
-    //}
 
-    require'Tabung.php';
+//    $luas = 3.14 * $diameter *$tinggi;
+//    $volume = 3.14 * $r *$r *$tinggi;
 
-    $tabung = new Tabung;
+//    echo "Diameter $diameter <br/>";
+//    echo "Tinggi $tinggi <br/>";
 
-    if (isset($_POST['button_submit'])) { 
-        $Tabung->setDiameter($_POST['diameter']);
-        $Tabung->setTinggi($_POSt['tinggi']);
-    }
+
+    $tabung-> setDiameter($_POST['diameter']);
+    $tabung-> setTinggi($_POST['tinggi']);
+}
+
+
 ?>
+
+ <?php //echo isset($_GET['nama']) $_GET[['nama'] : ''; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,25 +46,26 @@
     <title>Document</title>
 </head>
 <body>
-    <!--<h1>Nama <?php echo isset($_GET['nama']) ? $_GET['nama'] : ''; ?></h1>
-    
-    <form action="" method="post">
-    <input type="text" name="diameter">
-    <button name="submit_btn">submit</button>
-    </form> -->
-    
+
+<!-- <h1> Nama  </h1> -->
+
+<!-- <form action="" method="post">
+    <input type="text" name="diameter" value="7">
+    <button name="submit_btn"> Submit </button>-->
+
+</form>
     <form action="" method="POST">
-    <label for="">Diameter Alas</label>
-    <input type="text" name="diameter"> <br>
-    <label for="">Tinggi Tabung</label>
-    <input type="text" name="tinggi"> <br><br>
-    <button>Hitung</button>
- 
+        <label for="">Diameter Alas</label>
+        <input type="text" name="diameter"> <br>
+        <label for="">Tinggi Tabung</label>
+        <input type="text" name="tinggi"> <br><br>
+        <button name='button_sbm'>Hitung</button>
+      
     </form>
-    <hr>  
+    <hr>
     <ul>
-        <li>Luas selimut : <?=is_null($tabung)?'Tabung kosong':$tabung->getLuasSelimut();?></li>
-        <li>Volume : </li>
+            <li>Luas Sisi : <?php echo $tabung->getLuas(); ?></li>
+            <li>Volume : <?php ?></li>
     </ul>
 </body>
 </html>
